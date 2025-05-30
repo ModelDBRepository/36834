@@ -2,7 +2,7 @@
 
 ARLO model for [EarLab website](http://earlab.bu.edu/Default.aspx), a digital warehouse of auditory models and data.
 
-```
+
 This is C code (prepared by Xuedong Zhang) for the AN model described in
 "Auditory nerve model for predicting performance limits of normal and impaired listeners,"
 Heinz, M.G., Zhang, X., Bruce, I.C., and Carney, L.H. ARLO (2001) 2:91-96.
@@ -10,15 +10,15 @@ Heinz, M.G., Zhang, X., Bruce, I.C., and Carney, L.H. ARLO (2001) 2:91-96.
 This code is written in C, such that it is compatible with MATLAB.
 
 After loading all of these files into your directory,
-In Matlab, type: compile_ARLO
+In Matlab, type: ```compile_ARLO```
      to create a mex file (an_arlo) that can be called as a Matlab function.
 
 Run TEST.m in matlab to test the model - this code provides a simple example.
 
 The basic call to the model is as follows:
-
->> sout(:,index) = an_arlo([tdres,cf,spont,model,species,ifspike],sig');
-
+```matlab
+sout(:,index) = an_arlo([tdres,cf,spont,model,species,ifspike],sig');
+```
 where 'sout' is the synapse output (in sp/sec) as described in JASA 2001.
 
 Note the following INPUT parameters are required to run the model:
@@ -50,13 +50,14 @@ Finally, sig is an array that holds the stimulus waveform, scaled in pascals and
 
 To generate spike times, see latter part of the example program TEST.m:
 the function call is:
->> [sptime,nspikes] = sgmodel([tdres, nrep],sout);
+```matlab
+[sptime,nspikes] = sgmodel([tdres, nrep],sout);
+```
    where tdres is the same as above, and nrep is the number of repetitions.
 (This function runs fine in Matlab6 version 12, had problems in Matlab5.3.)
 
 Good Luck!  -Laurel Carney  7/28/01
-```
 
 ---
 
-2025-05-27 – Standardized to Markdown.
+Standardized to Markdown 5/27/25
